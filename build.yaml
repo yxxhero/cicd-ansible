@@ -1,0 +1,5 @@
+---
+- name: build code imgae
+  hosts: cinode 
+  roles:
+    - codebuild 

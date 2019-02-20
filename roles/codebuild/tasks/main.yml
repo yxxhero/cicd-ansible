@@ -1,0 +1,13 @@
+- name: clone code by git
+  git:
+    repo: "{{ repo_url }}" 
+    accept_hostkey: yes
+    dest: "{{ repo_dest_path }}"
+    force: yes
+  become: true 
+
+- name: build code image 
+  docker_image:
+    path: "{{ repo_dest_path }}" 
+    name: cicd-flask 
+  become: true 

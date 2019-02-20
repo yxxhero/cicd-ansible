@@ -1,0 +1,4 @@
+- name: code deploy
+  hosts: cdnode
+  roles:
+    - codedeploy
