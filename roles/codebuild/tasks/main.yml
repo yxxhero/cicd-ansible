@@ -10,13 +10,16 @@
   shell: date +%F
   register: currentdate
     
-- name: debug current date
-  debug:
-    msg: "{{ currentdate }}"
-
 - name: build code image 
   docker_image:
     path: "{{ repo_dest_path }}" 
     name: cicd-flask 
     force: yes
   become: true 
+
+- name: tag image with currentdate
+  docker_image:
+    name: cicd-flask 
+    repository: "cicd-flask:{{ currentdate.stdout }}"
+  become: true 
+
