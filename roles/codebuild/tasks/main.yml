@@ -10,4 +10,5 @@
   docker_image:
     path: "{{ repo_dest_path }}" 
     name: cicd-flask 
+    force: yes
   become: true 
