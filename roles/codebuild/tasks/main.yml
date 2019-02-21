@@ -6,6 +6,14 @@
     force: yes
   become: true 
 
+- name: get current date
+  shell: date +%F
+  register: currentdate
+    
+- name: debug current date
+  debug:
+    msg: "{{ currentdate }}"
+
 - name: build code image 
   docker_image:
     path: "{{ repo_dest_path }}" 
